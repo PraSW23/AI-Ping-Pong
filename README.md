@@ -1,6 +1,8 @@
 #Pong Game in Python using Pygame
 
 This is a simple implementation of the classic Pong game created in Python using the Pygame library.
+[Screencast from 17-01-24 05:20:41 PM IST.webm](https://github.com/PraSW23/AI-Ping-Pong/assets/130173965/6df40df9-75b8-44ec-bf6f-62f69fc2c177)
+
 Game Description
 
 Pong is a two-player sports game that simulates table tennis. Players control paddles and try to hit the ball past their opponent. The first player to reach a certain score wins the game.
