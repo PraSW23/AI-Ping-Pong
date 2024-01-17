@@ -18,18 +18,18 @@ player_speed = 10
 opponent_speed = 7
 player_score = 0
 opponent_score = 0
-MAX_SCORE = 10  # Define the maximum score for game over
+MAX_SCORE = 10  # The maximum score for game over
 
-# Create the window
+# Creating the window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pong")
 
-# Define game objects
+# Defining game objects
 ball = pygame.Rect(WIDTH // 2 - 15, HEIGHT // 2 - 15, 30, 30)
 player = pygame.Rect(WIDTH - 20, HEIGHT // 2 - 70, 10, 140)
 opponent = pygame.Rect(10, HEIGHT // 2 - 70, 10, 140)
 
-# Define ball movement
+# Defining ball movement
 ball_dx = ball_speed_x
 ball_dy = ball_speed_y
 
@@ -43,12 +43,12 @@ def ball_restart():
 clock = pygame.time.Clock()
 running = True
 while running:
-    # Handle events
+    # Handling events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # Move the player
+    # Moving the player
     keys = pygame.key.get_pressed()
     if keys[pygame.K_DOWN] and player.bottom < HEIGHT:
         player.y += player_speed
@@ -95,14 +95,18 @@ while running:
 
     # Check for game over
     if player_score >= MAX_SCORE:
-        winner_text = FONT.render("Player wins!", True, WHITE)
-        screen.blit(winner_text, (WIDTH // 2 - 100, HEIGHT // 2))
-        running = False
+    	winner_text = FONT.render("You WON!", True, WHITE)
+    	screen.blit(winner_text, (WIDTH // 2 - 100, HEIGHT // 1.5))  
+    	pygame.display.flip()  
+    	pygame.time.delay(2000)  
+    	running = False
     elif opponent_score >= MAX_SCORE:
-        winner_text = FONT.render("Opponent wins!", True, WHITE)
-        screen.blit(winner_text, (WIDTH // 2 - 110, HEIGHT // 2))
-        running = False
-
+    	winner_text = FONT.render("YOU LOST!", True, WHITE)
+    	screen.blit(winner_text, (WIDTH // 2 - 110, HEIGHT // 1.5))  
+    	pygame.display.flip()  
+    	pygame.time.delay(2000)  
+    	running = False
+    
     # Update the display
     pygame.display.flip()
 
@@ -112,4 +116,3 @@ while running:
 # Quit Pygame
 pygame.quit()
 sys.exit()
-
